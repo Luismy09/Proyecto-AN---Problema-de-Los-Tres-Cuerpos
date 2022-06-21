@@ -2,32 +2,102 @@ GlowScript 3.1 VPython
 
 scene.background = vector(0.5, 0.5, 0.5)
 
-
 "Valores Iniciales"
 
-t_0 = 0             #Tiempo inicial
-u1_0 = 1            #Componente x de la Posición del Cuerpo 1
-u2_0 = -1           #Componente x de la Posición del Cuerpo 2
-u3_0 = 0            #Componente x de la Posición del Cuerpo 3
-u4_0 = 0            #Componente x de la Velocidad del Cuerpo 1
-u5_0 = 0            #Componente x de la Velocidad del Cuerpo 2
-u6_0 = 0            #Componente x de la Velocidad del Cuerpo 3
-v1_0 = 0            #Componente y de la Posición del Cuerpo 1
-v2_0 = 0            #Componente y de la Posición del Cuerpo 2
-v3_0 = -sqrt(3)     #Componente y de la Posición del Cuerpo 3
-v4_0 = 0            #Componente y de la Velocidad del Cuerpo 1
-v5_0 = 0            #Componente y de la Velocidad del Cuerpo 2
-v6_0 = 0            #Componente y de la Velocidad del Cuerpo 3
-w1_0 = 0            #Componente z de la Posición del Cuerpo 1
-w2_0 = 0            #Componente z de la Posición del Cuerpo 2
-w3_0 = 0            #Componente z de la Posición del Cuerpo 3
-w4_0 = 2            #Componente z de la Velocidad del Cuerpo 1
-w5_0 = -2           #Componente z de la Velocidad del Cuerpo 2
-w6_0 = 0            #Componente z de la Velocidad del Cuerpo 3
+                            #COREOGRAFÍA ALEATORIA
+RATE = 1000
+RETAIN = 100
+RADIUS = 1
 
-m1 = 10**11         #Masa del cuerpo 1
-m2 = 10**11         #Masa del cuerpo 2
-m3 = 10**11         #Masa del cuerpo 3
+aa = tan(pi/6)/sqrt(tan(pi/6)**2 + 1)
+bb = 1/sqrt(tan(pi/6)**2 + 1)
+k1 = 0.75
+k2 = 5.34
+
+t_0 = 0                                 #Tiempo inicial
+pos1 = [1*k2, tan(pi/6)*k2, 0]          #Posición del cuerpo 1    [x1, y1, z1]
+pos2 = [-1*k2, tan(pi/6)*k2, 0]         #Posición del cuerpo 2    [x2, y2, z2]
+pos3 = [0, -1/cos(pi/6)*k2, 0]          #Posición del cuerpo 3    [x3, y3, z3]
+vel1 = [aa*k1, -bb*k1, 0]               #Velocidad del cuerpo 1   [vx1, vy1, vz1]
+vel2 = [aa*k1, bb*k1, 0.5]              #Velocidad del cuerpo 2   [vx2, vy2, vz2]
+vel3 = [-1*k1, 0, -0.5]                 #Velocidad del cuerpo 3   [vx3, vy3, vz3]
+
+
+"""                         #COREOGRAFÍA LAGRANGE 1
+RATE = 200
+RETAIN = 80
+RADIUS = 0.5
+
+aa = tan(pi/6)/sqrt(tan(pi/6)**2 + 1)
+bb = 1/sqrt(tan(pi/6)**2 + 1)
+k1 = 1
+k2 = 3.34
+
+t_0 = 0                                 #Tiempo inicial
+pos1 = [1*k2, tan(pi/6)*k2, 0]          #Posición del cuerpo 1    [x1, y1, z1]
+pos2 = [-1*k2, tan(pi/6)*k2, 0]         #Posición del cuerpo 2    [x2, y2, z2]
+pos3 = [0, -1/cos(pi/6)*k2, 0]          #Posición del cuerpo 3    [x3, y3, z3]
+vel1 = [aa*k1, -bb*k1, 0]               #Velocidad del cuerpo 1   [vx1, vy1, vz1]
+vel2 = [aa*k1, bb*k1, 0]                #Velocidad del cuerpo 2   [vx2, vy2, vz2]
+vel3 = [-1*k1, 0, 0]                    #Velocidad del cuerpo 3   [vx3, vy3, vz3]
+"""
+
+"""                         #COREOGRAFÍA LAGRANGE 2
+RATE = 100
+RETAIN = 250
+RADIUS = 0.5
+
+aa = tan(pi/6)/sqrt(tan(pi/6)**2 + 1)
+bb = 1/sqrt(tan(pi/6)**2 + 1)
+k1 = 1
+k2 = 1.7
+
+t_0 = 0                                 #Tiempo inicial
+pos1 = [1*k2, tan(pi/6)*k2, 0]          #Posición del cuerpo 1    [x1, y1, z1]
+pos2 = [-1*k2, tan(pi/6)*k2, 0]         #Posición del cuerpo 2    [x2, y2, z2]
+pos3 = [0, -1/cos(pi/6)*k2, 0]          #Posición del cuerpo 3    [x3, y3, z3]
+vel1 = [aa*k1, -bb*k1, 0]               #Velocidad del cuerpo 1   [vx1, vy1, vz1]
+vel2 = [aa*k1, bb*k1, 0]                #Velocidad del cuerpo 2   [vx2, vy2, vz2]
+vel3 = [-1*k1, 0, 0]                    #Velocidad del cuerpo 3   [vx3, vy3, vz3]
+"""
+
+"""                         #COREOGRAFÍA PROPIA 1
+RATE = 100
+RETAIN = 200
+RADIUS = 0.5
+
+t_0 = 0                         #Tiempo inicial
+pos1 = [1, tan(pi/6), 0]        #Posición del cuerpo 1    [x1, y1, z1]
+pos2 = [-1, tan(pi/6), 0]       #Posición del cuerpo 2    [x2, y2, z2]
+pos3 = [0, -1/cos(pi/6), 0]     #Posición del cuerpo 3    [x3, y3, z3]
+vel1 = [0, 0, 2]                #Velocidad del cuerpo 1   [vx1, vy1, vz1]
+vel2 = [0, 0, -2]               #Velocidad del cuerpo 2   [vx2, vy2, vz2]
+vel3 = [0, 0, 0]                #Velocidad del cuerpo 3   [vx3, vy3, vz3]
+"""
+
+"""                         #COREOGRAFÍA DEL OCHO
+RATE = 480
+RETAIN = 77
+RADIUS = 0.5
+
+aa = 6.3
+bb = 1.3
+k1 = 1.3
+k2 = 0.65
+theta = pi/4
+
+t_0 = 0                                         #Tiempo inicial
+pos1 = [-aa, -bb, 0]                            #Posición del cuerpo 1    [x1, y1, z1]
+pos2 = [0, 0, 0]                                #Posición del cuerpo 2    [x2, y2, z2]
+pos3 = [aa, bb, 0]                              #Posición del cuerpo 3    [x3, y3, z3]
+vel1 = [sin(theta)*k2, -cos(theta)*k2, 0]       #Velocidad del cuerpo 1   [vx1, vy1, vz1]
+vel2 = [-sin(theta)*k1, cos(theta)*k1, 0]       #Velocidad del cuerpo 2   [vx2, vy2, vz2]
+vel3 = [sin(theta)*k2, -cos(theta)*k2, 0]       #Velocidad del cuerpo 3   [vx3, vy3, vz3]
+"""
+
+m1 = 10**11                     #Masa del cuerpo 1
+m2 = 10**11                     #Masa del cuerpo 2
+m3 = 10**11                     #Masa del cuerpo 3
 G = 6.67384 * 10**(-11)         #Constante de Gravitación Universal
 
 
@@ -56,14 +126,13 @@ R1, R2, R3, R4 = 0, 0, 0, 0
 S1, S2, S3, S4 = 0, 0, 0, 0
 U1, U2, U3, U4 = 0, 0, 0, 0
 
-a, b, c, d, e, f = u1_0, u2_0, u3_0, u4_0, u5_0, u6_0
-g, i, j, l, m, n = v1_0, v2_0, v3_0, v4_0, v5_0, v6_0
-o, p, q, r, s, u = w1_0, w2_0, w3_0, w4_0, w5_0, w6_0
+a, b, c, d, e, f = pos1[0], pos2[0], pos3[0], vel1[0], vel2[0], vel3[0]
+g, i, j, l, m, n = pos1[1], pos2[1], pos3[1], vel1[1], vel2[1], vel3[1]
+o, p, q, r, s, u = pos1[2], pos2[2], pos3[2], vel1[2], vel2[2], vel3[2]
 
-
-particle_1 = sphere(pos=vector(a, g, o), radius=0.5, color=color.yellow, make_trail=False, retain = 1000)   #Cuerpo 1
-particle_2 = sphere(pos=vector(b, i, p), radius=0.5, color=color.yellow, make_trail=False, retain = 1000)   #Cuerpo 2
-particle_3 = sphere(pos=vector(c, j, q), radius=0.5, color=color.yellow, make_trail=False, retain = 1000)   #Cuerpo 3
+particle_1 = sphere(pos=vector(a, g, o), radius=RADIUS, color=color.yellow, make_trail=True, retain = RETAIN)   #Cuerpo 1
+particle_2 = sphere(pos=vector(b, i, p), radius=RADIUS, color=color.blue, make_trail=True, retain = RETAIN)   #Cuerpo 2
+particle_3 = sphere(pos=vector(c, j, q), radius=RADIUS, color=color.red, make_trail=True, retain = RETAIN)   #Cuerpo 3
 
 
 def f1(t, u1, u2, u3, u4, u5, u6, v1, v2, v3, v4, v5, v6, w1, w2, w3, w4, w5, w6):
@@ -148,8 +217,8 @@ def f18(t, u1, u2, u3, u4, u5, u6, v1, v2, v3, v4, v5, v6, w1, w2, w3, w4, w5, w
     return resultado
 
 
-for k in range(1, 10001):
-    rate(100)
+for k in range(1, 1000001):
+    rate(RATE)
     
     A1 = f1(time, a, b, c, d, e, f, g, i, j, l, m, n, o, p, q, r, s, u)
     B1 = f2(time, a, b, c, d, e, f, g, i, j, l, m, n, o, p, q, r, s, u)
