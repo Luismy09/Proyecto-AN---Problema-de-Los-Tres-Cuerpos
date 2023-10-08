@@ -61,20 +61,6 @@ vel2 = [aa*k1, bb*k1, 0]                #Velocidad del cuerpo 2   [vx2, vy2, vz2
 vel3 = [-1*k1, 0, 0]                    #Velocidad del cuerpo 3   [vx3, vy3, vz3]
 """
 
-"""                         #COREOGRAFÍA PROPIA 1
-RATE = 100
-RETAIN = 200
-RADIUS = 0.5
-
-t_0 = 0                         #Tiempo inicial
-pos1 = [1, tan(pi/6), 0]        #Posición del cuerpo 1    [x1, y1, z1]
-pos2 = [-1, tan(pi/6), 0]       #Posición del cuerpo 2    [x2, y2, z2]
-pos3 = [0, -1/cos(pi/6), 0]     #Posición del cuerpo 3    [x3, y3, z3]
-vel1 = [0, 0, 2]                #Velocidad del cuerpo 1   [vx1, vy1, vz1]
-vel2 = [0, 0, -2]               #Velocidad del cuerpo 2   [vx2, vy2, vz2]
-vel3 = [0, 0, 0]                #Velocidad del cuerpo 3   [vx3, vy3, vz3]
-"""
-
 """                         #COREOGRAFÍA DEL OCHO
 RATE = 480
 RETAIN = 77
